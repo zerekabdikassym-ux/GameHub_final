@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2048 — Game</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body class="game-2048">
+  <header>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="tictactoe.html">Tic Tac Toe</a>
+      <a href="2048.html">2048</a>
+      <a href="dino.html">Dino</a>
+      <a href="tanks.html">Tanks</a>
+      <a href="sudoku.html">Sudoku</a>
+      <a href="profile.html">Profile</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="login.html">Log In</a>
+    </nav>
+    <div>
+      <button id="theme-toggle" aria-label="Toggle theme">Dark Mode</button>
+    </div>
+  </header>
+
+
+  <main>
+    <h2>🔢 2048</h2>
+    <p><strong>Desktop:</strong> Use arrow keys (↑ ↓ ← →) to move tiles</p>
+    <p><strong>Mobile:</strong> Swipe in any direction to move tiles</p>
+    <p style="margin-top:8px; opacity:0.8;">Combine tiles with the same number to reach <strong>2048!</strong></p>
+    
+    <table id="grid"></table>
+    
+    <p id="score" style="font-size:1.3rem; font-weight:700; margin:20px 0; color:var(--link-color)">Score: 0</p>
+    
+    <div style="margin-top:20px; display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap;">
+      <button onclick="location.reload()" style="padding:10px 20px; font-size:1rem;">🔄 Restart</button>
+      <a href="index.html" style="color:var(--link-color); text-decoration:none; font-weight:500;">← Back to Menu</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Amir Abil, Zerek Abdikassym — IT-2403</p>
+  </footer>
+
+  <script src="../JavaScript/auth.js"></script>
+  <script src="../JavaScript/game2048.js"></script>
+  <script src="../JavaScript/theme.js"></script>
+</body>
+</html>

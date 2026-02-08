@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Games Portal</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/weather-widget.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <header>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="tictactoe.html">Tic Tac Toe</a>
+      <a href="2048.html">2048</a>
+      <a href="dino.html">Dino</a>
+      <a href="tanks.html">Tanks</a>
+      <a href="sudoku.html">Sudoku</a>
+      <a href="profile.html">Profile</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="login.html">Log In</a>
+    </nav>
+    <div>
+      <button id="theme-toggle" aria-label="Toggle theme">Dark Mode</button>
+    </div>
+  </header>
+
+
+  <main>
+    <h1>🎮 Mini Games Portal</h1>
+    <p>Choose a game below and have fun!</p>
+    
+    
+    <div id="weatherWidget" role="complementary" aria-label="Weather information">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+        <div>
+          <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">🌍 Current Weather</p>
+          <h2 id="weatherCity">Loading...</h2>
+        </div>
+        <div id="weatherInfo" style="text-align: right;">
+          <p id="weatherTemp" aria-label="Temperature">--°</p>
+          <p id="weatherDesc" aria-label="Weather description">--</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="search-section" style="max-width: 600px; margin: 24px auto;">
+      <input 
+        type="text" 
+        id="gameSearch" 
+        placeholder="🔍 Search games..." 
+        style="width: 100%; padding: 12px 16px; font-size: 1rem; border-radius: 8px; border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-color);"
+        aria-label="Search games"
+      >
+      <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; justify-content: center;">
+        <button class="filter-btn active" data-category="all" style="padding: 6px 14px; border-radius: 20px; border: 1px solid var(--link-color); background: var(--link-color); color: white; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">All</button>
+        <button class="filter-btn" data-category="puzzle" style="padding: 6px 14px; border-radius: 20px; border: 1px solid var(--link-color); background: transparent; color: var(--link-color); cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">Puzzle</button>
+        <button class="filter-btn" data-category="action" style="padding: 6px 14px; border-radius: 20px; border: 1px solid var(--link-color); background: transparent; color: var(--link-color); cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">Action</button>
+        <button class="filter-btn" data-category="arcade" style="padding: 6px 14px; border-radius: 20px; border: 1px solid var(--link-color); background: transparent; color: var(--link-color); cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">Arcade</button>
+      </div>
+      <p id="searchResults" style="margin-top: 12px; font-size: 0.9rem; opacity: 0.8;"></p>
+    </div>
+
+    <div class="games" id="gamesContainer">
+      <a class="game" href="tictactoe.html" data-category="puzzle" data-name="tic tac toe" aria-label="Play Tic Tac Toe">
+        <h2>❌ Tic Tac Toe</h2>
+        <p>Classic X and O duel.</p>
+      </a>
+      <a class="game" href="2048.html" data-category="puzzle" data-name="2048" aria-label="Play 2048">
+        <h2>🔢 2048</h2>
+        <p>Join numbers and reach 2048!</p>
+      </a>
+      <a class="game" href="dino.html" data-category="arcade" data-name="dino" aria-label="Play Dino Game">
+        <h2>🦖 Dino</h2>
+        <p>Jump over obstacles like in Chrome.</p>
+      </a>
+      <a class="game" href="tanks.html" data-category="action" data-name="tanks" aria-label="Play Tanks Battle">
+        <h2>💣 Tanks</h2>
+        <p>2-player tank battle with bullets!</p>
+      </a>
+      <a class="game" href="sudoku.html" data-category="puzzle" data-name="sudoku" aria-label="Play Sudoku">
+        <h2>🧩 Sudoku</h2>
+        <p>Fill 9×9 grid with digits 1–9.</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Amir Abil, Zerek Abdikassym — IT-2403</p>
+  </footer>
+
+  <script src="../JavaScript/theme.js"></script>
+  <script src="../JavaScript/search.js"></script>
+  <script src="../JavaScript/weather.js"></script>
+</body>
+</html>

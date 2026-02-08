@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dino — Game</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <header>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="tictactoe.html">Tic Tac Toe</a>
+      <a href="2048.html">2048</a>
+      <a href="dino.html">Dino</a>
+      <a href="tanks.html">Tanks</a>
+      <a href="sudoku.html">Sudoku</a>
+      <a href="profile.html">Profile</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="login.html">Log In</a>
+    </nav>
+    <div>
+      <button id="theme-toggle" aria-label="Toggle theme">Dark Mode</button>
+    </div>
+  </header>
+
+
+  <main>
+    <h2>🦖 Dino</h2>
+    <p>Press <strong>Space</strong> or <strong>↑</strong> to jump over obstacles.</p>
+    <div class="game-dino" id="game">
+      <div class="dino" id="dino"></div>
+    </div>
+    <p id="score" style="font-size:1.2rem; font-weight:600; margin:16px 0; color:var(--text-color)">Score: 0</p>
+    <div style="margin-top:16px; display:flex; gap:12px; justify-content:center; align-items:center;">
+      <button id="restart">Restart</button>
+      <a href="index.html" style="color:var(--link-color); text-decoration:none;">Back to Menu</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Amir Abil, Zerek Abdikassym — IT-2403</p>
+  </footer>
+
+  <script src="../JavaScript/auth.js"></script>
+  <script src="../JavaScript/dino.js"></script>
+  <script src="../JavaScript/theme.js"></script>
+</body>
+</html>

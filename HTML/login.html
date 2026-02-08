@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Log In — GameHub</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <header>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="tictactoe.html">Tic Tac Toe</a>
+      <a href="2048.html">2048</a>
+      <a href="dino.html">Dino</a>
+      <a href="tanks.html">Tanks</a>
+      <a href="sudoku.html">Sudoku</a>
+      <a href="profile.html">Profile</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="login.html">Log In</a>
+    </nav>
+    <div>
+      <button id="theme-toggle" aria-label="Toggle theme">Dark Mode</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-wrap">
+      <h2>Log In</h2>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email">
+        <div id="err-email" class="error" style="display:none"></div>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password">
+        <div id="err-pw" class="error" style="display:none"></div>
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center; margin-top:20px;">
+        <button id="btnLogin" class="primary">Log In</button>
+        <a href="signup.html" style="font-size:0.9rem; color:var(--link-color)">Create account</a>
+      </div>
+
+      <div id="msg" style="margin-top:12px"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Amir Abil, Zerek Abdikassym — IT-2403</p>
+  </footer>
+
+  <script src="../JavaScript/auth.js"></script>
+  <script>
+    const emailEl = document.getElementById('email');
+    const pwEl = document.getElementById('password');
+    const btn = document.getElementById('btnLogin');
+    const msg = document.getElementById('msg');
+
+    function showErr(id, text) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.display = text ? 'block' : 'none';
+      el.textContent = text || '';
+    }
+
+    btn.addEventListener('click', async () => {
+      showErr('err-email',''); 
+      showErr('err-pw',''); 
+      msg.textContent='';
+
+      const email = emailEl.value.trim();
+      const pw = pwEl.value;
+      
+      if (!email) { 
+        showErr('err-email','Email is required'); 
+        return; 
+      }
+      if (!pw) { 
+        showErr('err-pw','Password is required'); 
+        return; 
+      }
+
+      // Disable button during request
+      btn.disabled = true;
+      btn.textContent = 'Logging in...';
+
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password: pw })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          msg.innerHTML = `<div class="error">${data.message || 'Login failed'}</div>`;
+          btn.disabled = false;
+          btn.textContent = 'Log In';
+          return;
+        }
+
+        // Store token and user info
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('currentUser', data.email);
+        localStorage.setItem('username', data.username);
+        
+        msg.innerHTML = '<div class="success">Login successful. Redirecting to profile...</div>';
+        setTimeout(() => location.href = 'profile.html', 1000);
+      } catch (error) {
+        console.error('Login error:', error);
+        msg.innerHTML = '<div class="error">Network error. Please try again.</div>';
+        btn.disabled = false;
+        btn.textContent = 'Log In';
+      }
+    });
+  </script>
+
+  <script src="../JavaScript/theme.js"></script>
+</body>
+</html>

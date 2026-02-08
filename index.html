@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mini Games Portal - Play fun games including 2048, Tic Tac Toe, Dino, Tanks, and Sudoku">
+  <meta name="keywords" content="games, 2048, tic tac toe, sudoku, tanks, dino game, mini games">
+  <meta name="author" content="Amir Abil, Zerek Abdikassym">
+  <title>Mini Games Portal - Play Fun Games Online</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/weather-widget.css">
+</head>
+<body>
+  <header>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="HTML/tictactoe.html">Tic Tac Toe</a>
+      <a href="HTML/2048.html">2048</a>
+      <a href="HTML/dino.html">Dino</a>
+      <a href="HTML/tanks.html">Tanks</a>
+      <a href="HTML/sudoku.html">Sudoku</a>
+      <a href="HTML/profile.html">Profile</a>
+      <a href="HTML/signup.html">Sign Up</a>
+      <a href="HTML/login.html">Log In</a>
+    </nav>
+    <div>
+      <button id="theme-toggle" aria-label="Toggle dark and light mode">Dark Mode</button>
+    </div>
+  </header>
+
+  <main>
+    <h1>🎮 Mini Games Portal</h1>
+    <p>Choose a game below and have fun!</p>
+    
+    
+    <div id="weatherWidget" role="complementary" aria-label="Weather information">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+        <div>
+          <p style="margin: 0; font-size: 0.85rem; opacity: 0.8;">🌍 Current Weather</p>
+          <h2 id="weatherCity">Loading...</h2>
+        </div>
+        <div id="weatherInfo" style="text-align: right;">
+          <p id="weatherTemp" aria-label="Temperature">--°</p>
+          <p id="weatherDesc" aria-label="Weather description">--</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <section class="search-section" style="max-width: 600px; margin: 24px auto;" aria-label="Game search and filter">
+      <h2 class="sr-only">Search and Filter Games</h2>
+      <input 
+        type="search" 
+        id="gameSearch" 
+        placeholder="🔍 Search games..." 
+        style="width: 100%; padding: 12px 16px; font-size: 1rem; border-radius: 8px; border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-color);"
+        aria-label="Search games by name"
+      >
+      <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; justify-content: center;" role="group" aria-label="Filter games by category">
+        <button class="filter-btn active" data-category="all" style="padding: 6px 14px; border-radius: 20px; border: 1px solid var(--link-color); background: var(--link-color); color: white; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;" aria-pressed="true">All</button>
+        <button class="filter-btn" data-category="puzzle" style="padding: 6px 14px; border-radius: 20px; border: 1px solid var(--link-color); background: transparent; color: var(--link-color); cursor: pointer; font-size: 0.9rem; transition: all 0.2s;" aria-pressed="false">Puzzle</button>
+        <button class="filter-btn" data-category="action" style="padding: 6px 14px; border-radius: 20px; border: 1px solid var(--link-color); background: transparent; color: var(--link-color); cursor: pointer; font-size: 0.9rem; transition: all 0.2s;" aria-pressed="false">Action</button>
+        <button class="filter-btn" data-category="arcade" style="padding: 6px 14px; border-radius: 20px; border: 1px solid var(--link-color); background: transparent; color: var(--link-color); cursor: pointer; font-size: 0.9rem; transition: all 0.2s;" aria-pressed="false">Arcade</button>
+      </div>
+      <p id="searchResults" style="margin-top: 12px; font-size: 0.9rem; opacity: 0.8;" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="games" id="gamesContainer" aria-label="Available games">
+      <a class="game" href="HTML/tictactoe.html" data-category="puzzle" data-name="tic tac toe" aria-label="Play Tic Tac Toe">
+        <h2>❌ Tic Tac Toe</h2>
+        <p>Classic X and O duel.</p>
+      </a>
+      <a class="game" href="HTML/2048.html" data-category="puzzle" data-name="2048" aria-label="Play 2048">
+        <h2>🔢 2048</h2>
+        <p>Join numbers and reach 2048!</p>
+      </a>
+      <a class="game" href="HTML/dino.html" data-category="arcade" data-name="dino" aria-label="Play Dino Game">
+        <h2>🦖 Dino</h2>
+        <p>Jump over obstacles like in Chrome.</p>
+      </a>
+      <a class="game" href="HTML/tanks.html" data-category="action" data-name="tanks" aria-label="Play Tanks Battle">
+        <h2>💣 Tanks</h2>
+        <p>2-player tank battle with bullets!</p>
+      </a>
+      <a class="game" href="HTML/sudoku.html" data-category="puzzle" data-name="sudoku" aria-label="Play Sudoku">
+        <h2>🧩 Sudoku</h2>
+        <p>Fill 9×9 grid with digits 1–9.</p>
+      </a>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2024 Amir Abil, Zerek Abdikassym — IT-2403</p>
+  </footer>
+
+  <script src="JavaScript/theme.js"></script>
+  <script src="JavaScript/search.js"></script>
+  <script src="JavaScript/weather.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sudoku</title>
+  <link rel="stylesheet" href="../src/css/style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <header>
+    <nav id="main-nav">
+      <a href="index.html">Home</a>
+      <a href="tictactoe.html">Tic Tac Toe</a>
+      <a href="2048.html">2048</a>
+      <a href="dino.html">Dino</a>
+      <a href="tanks.html">Tanks</a>
+      <a href="sudoku.html">Sudoku</a>
+      <a href="profile.html">Profile</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="login.html">Log In</a>
+    </nav>
+    <div>
+      <button id="theme-toggle" aria-label="Toggle theme">Dark Mode</button>
+    </div>
+  </header>
+
+  <main>
+    <h2>🧩 Sudoku</h2>
+    <p>Rules: each row, column and 3×3 box must contain digits 1–9 without repetition.</p>
+    <div style="display:flex; gap:16px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:20px;">
+      <div>
+        <label style="display:flex; align-items:center; gap:8px; font-weight:500;">
+          Difficulty:
+          <select id="difficulty" style="width:auto; min-width:120px;">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+      </div>
+      <div class="controls" style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button id="newPuzzle">New Puzzle</button>
+        <button id="check">Check</button>
+        <button id="solve">Solve</button>
+        <a href="index.html" style="color:var(--link-color); text-decoration:none; display:flex; align-items:center;">Back to Menu</a>
+      </div>
+    </div>
+
+    <div class="sudoku" id="board"></div>
+    <div id="message" style="text-align:center; margin-top:12px; font-weight:500; color:var(--link-color); min-height:24px;"></div>
+  </main>
+
+  <footer>
+    <p>© Amir Abil, Zerek Abdikassym — IT-2403</p>
+  </footer>
+
+  <script src="../src/js/auth.js"></script>
+  <script src="../src/js/sudoku.js"></script>
+  <script src="../src/js/theme.js"></script>
+</body>
+</html>

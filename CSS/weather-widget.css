@@ -1,0 +1,61 @@
+#weatherWidget {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 16px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+}
+#weatherWidget:hover {
+  box-shadow: 0 6px 16px var(--shadow);
+  transform: translateY(-2px);
+}
+#weatherWidget:active {
+  transform: translateY(0);
+}
+#weatherCity {
+  margin: 4px 0;
+  font-size: 1.2rem;
+  min-width: 150px;
+  min-height: 28px;
+  display: inline-block;
+  text-align: left;
+}
+#weatherTemp {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--link-color);
+  min-width: 70px;
+  min-height: 36px;
+  display: inline-block;
+}
+#weatherDesc {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  min-width: 100px;
+  min-height: 20px;
+  display: inline-block;
+}
+#weatherWidget.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+#weatherWidget.loading #weatherCity,
+#weatherWidget.loading #weatherTemp,
+#weatherWidget.loading #weatherDesc {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
