@@ -66,8 +66,8 @@
   </footer>
 
   <script src="../JavaScript/auth.js"></script>
+  <script src="../JavaScript/theme.js"></script>
   <script>
-    // signup page logic
     const nameEl = document.getElementById('name');
     const emailEl = document.getElementById('email');
     const phoneEl = document.getElementById('phone');
@@ -94,29 +94,17 @@
       const phone = phoneEl.value.trim();
       const password = pwEl.value;
 
-      if (!username) { 
-        showErr('err-name','Name is required'); 
-        return; 
-      }
-      if (!email) { 
-        showErr('err-email','Email is required'); 
-        return; 
-      }
-      if (password.length < 6) { 
-        showErr('err-password','Password must be at least 6 characters'); 
-        return; 
-      }
+      if (!username) { showErr('err-name','Name is required'); return; }
+      if (!email) { showErr('err-email','Email is required'); return; }
+      if (password.length < 6) { showErr('err-password','Password must be at least 6 characters'); return; }
 
-      // Disable button during request
       btn.disabled = true;
       btn.textContent = 'Creating account...';
 
       try {
-        const response = await fetch('http://localhost:5000/api/auth/register', {
+        const response = await fetch('https://gamehub-final.onrender.com/api/auth/register', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
             username, 
             email, 
@@ -134,7 +122,6 @@
           return;
         }
 
-        // Store token and user info
         localStorage.setItem('token', data.token);
         localStorage.setItem('currentUser', data.email);
         localStorage.setItem('username', data.username);
@@ -149,18 +136,5 @@
       }
     });
   </script>
-        showErr('err-email','An account with this email already exists');
-        return;
-      }
-
-      // save new user (without storing plain phone format changes)
-      users.push({ name, email, phone, password });
-      saveUsers(users);
-      msg.innerHTML = '<div class="success">Account created. Redirecting to login...</div>';
-      setTimeout(() => location.href = 'login.html', 900);
-    });
-  </script>
-
-  <script src="../JavaScript/theme.js"></script>
 </body>
 </html>

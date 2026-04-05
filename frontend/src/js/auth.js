@@ -1,4 +1,3 @@
-
 function getUsers() {
   const users = localStorage.getItem('users');
   return users ? JSON.parse(users) : [];
@@ -20,8 +19,7 @@ async function submitScore(game, score) {
       console.warn('No token found, score not submitted');
       return false;
     }
-
-    const response = await fetch(`http://localhost:5000/api/users/score/${game}`, {
+    const response = await fetch(`https://gamehub-final.onrender.com/api/users/score/${game}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
